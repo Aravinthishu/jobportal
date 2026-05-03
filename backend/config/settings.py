@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-vm_(3ufq)11!#sdnj)a(*olx+*866iq75xzhyj(6c(@tf)a8)4
 # SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=True, cast=bool)
 
-ALLOWED_HOSTS = ['192.168.0.63', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['192.168.0.63', 'localhost', '127.0.0.1', 'https://jobportal-production-0849.up.railway.app/']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
@@ -267,6 +267,7 @@ SIMPLE_JWT = {
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
     'http://127.0.0.1:5173',
+    'https://jobportal-three-red.vercel.app/',
 ]
 CORS_ALLOW_CREDENTIALS = True
 
