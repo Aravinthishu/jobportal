@@ -1,0 +1,8 @@
+HOST = mysql.railway.internal
+PORT =  3306
+DATABASE =  railway
+USER = root
+PASSWORD = gwCkJHrnPWDSpVAdOtnlECrTIfyLJBXy
+
+
+REDIS_URL =  redis://default:zIMDCFvyJcUwbbbDIOGDpDsURZAsOKyu@redis.railway.internal:6379

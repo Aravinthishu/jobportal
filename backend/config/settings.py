@@ -44,8 +44,10 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'cloudinary_storage',  # For Cloudinary media storage
     'django.contrib.staticfiles',
-
+    'cloudinary',
+    
     # Third party
     'rest_framework',
     'rest_framework_simplejwt',
@@ -311,9 +313,6 @@ DEFAULT_FROM_EMAIL = f'Nexhire <{config("EMAIL_HOST_USER")}>'
 
 FRONTEND_URL = config('FRONTEND_URL', default='http://localhost:5173')
 
-# Media files (resumes, profile pics)
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
 
 # Static files
 STATIC_URL = '/static/'
@@ -392,6 +391,16 @@ if PRODUCTION:
         'API_SECRET': config('CLOUDINARY_API_SECRET'),
     }
 
+
+# Use Cloudinary in production, local in development
+if config('PRODUCTION', default=False, cast=bool):
+    DEFAULT_FILE_STORAGE  = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+    STATICFILES_STORAGE   = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+else:
+    DEFAULT_FILE_STORAGE  = 'django.core.files.storage.FileSystemStorage'
+
+MEDIA_URL  = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
