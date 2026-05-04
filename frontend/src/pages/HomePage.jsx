@@ -456,7 +456,7 @@ const HomePage = () => {
                   style={{ background: 'var(--primary)' }}>
                   <Briefcase size={15} color="white" />
                 </div>
-                <span className="font-bold text-gradient">JobPortal</span>
+                <span className="font-bold text-gradient">Nexhire</span>
               </div>
               <p className="text-sm leading-relaxed"
                 style={{ color: 'var(--text-secondary)' }}>
@@ -517,7 +517,7 @@ const HomePage = () => {
           <div className="pt-8 border-t flex flex-col sm:flex-row items-center
             justify-between gap-4" style={{ borderColor: 'var(--border)' }}>
             <p className="text-xs" style={{ color: 'var(--text-muted)' }}>
-              © 2025 JobPortal. Built with ❤️ in Chennai, India.
+              © 2025 Nexhire. Built with ❤️ in Chennai, India.
             </p>
             <p className="text-xs" style={{ color: 'var(--text-muted)' }}>
               For skill development purposes only

@@ -142,7 +142,7 @@ const Navbar = () => {
               </div>
               <span className="text-base font-bold text-gradient">
                 {/* Change to your portal name */}
-                JobPortal
+                Nexhire
               </span>
             </Link>
 
