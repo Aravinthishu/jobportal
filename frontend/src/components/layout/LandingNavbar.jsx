@@ -18,7 +18,7 @@ const LandingNavbar = () => {
               <Briefcase size={17} color="white" />
             </div>
             <span className="text-base font-bold tracking-tight text-gradient">
-              JobPortal
+              Nexhire
             </span>
           </Link>
 
