@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'cloudinary_storage',  # For Cloudinary media storage
     'django.contrib.staticfiles',
     'cloudinary',
-    
+
     # Third party
     'rest_framework',
     'rest_framework_simplejwt',
@@ -383,21 +383,22 @@ if PRODUCTION:
     CELERY_TASK_ALWAYS_EAGER     = False
     CELERY_TASK_EAGER_PROPAGATES = False
 
-    # Cloudinary for media files
-    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+
+if config('PRODUCTION', default=False, cast=bool):
+    DEFAULT_FILE_STORAGE  = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+    STATICFILES_STORAGE   = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
     CLOUDINARY_STORAGE = {
         'CLOUD_NAME': config('CLOUDINARY_CLOUD_NAME'),
         'API_KEY':    config('CLOUDINARY_API_KEY'),
         'API_SECRET': config('CLOUDINARY_API_SECRET'),
     }
-
-
-# Use Cloudinary in production, local in development
-if config('PRODUCTION', default=False, cast=bool):
-    DEFAULT_FILE_STORAGE  = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-    STATICFILES_STORAGE   = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 else:
-    DEFAULT_FILE_STORAGE  = 'django.core.files.storage.FileSystemStorage'
+    DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
+    STATICFILES_STORAGE  = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+MEDIA_URL  = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 MEDIA_URL  = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
